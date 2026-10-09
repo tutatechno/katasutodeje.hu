@@ -173,3 +173,7 @@ p { margin: 0 0 1em; }
   .story--rev { grid-template-columns: 1fr; }
   .story--rev .story__photo { order: 0; }
 }
+
+/* ============ MENTESSÉG CÍMKÉK ============ */
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.tags span { font-size: .75rem; font-weight: 600; background: var(--sage-light); color: #4f5c2c; padding: 3px 10px; border-radius: 999px; }
