@@ -12,36 +12,39 @@ const KAPCSOLAT = {
 /* ---------------------------------------------------------
    KATEGÓRIÁK
    - tipus: "edes", "sos" vagy "kamra" (lekvárok, befőttek)
-   - receptek: ide kerülnek a sütik. Amíg üres, "Hamarosan" kártyák látszanak.
-     Egy recept így néz ki:
-     { nev: "Meggyes pite", leiras: "Tagyon hegyi meggyel, omlós tésztában.", kep: "img/meggyes-pite.jpg" }
-     (a kep elhagyható – ilyenkor az emoji jelenik meg)
+   - termekek: ide kerülnek a termékek rövid leírással és a mentességekkel.
+     Amíg üres, "Hamarosan" kártyák látszanak. Egy termék így néz ki:
+     { nev: "Meggyes pite", leiras: "Tagyon hegyi meggyel, omlós tésztában.",
+       mentes: ["glutén", "tej", "tojás"], kep: "img/meggyes-pite.jpg" },
+     - mentes: bármelyik szó, az oldalon "…mentes" címkeként jelenik meg
+       (pl. "glutén" → gluténmentes, "cukor" → cukormentes)
+     - kep: elhagyható, ilyenkor az emoji jelenik meg
    --------------------------------------------------------- */
 const KATEGORIAK = [
   {
     id: "torta", tipus: "edes", nev: "Torták", emoji: "🎂",
     leiras: "Ünnepi torták saját termesztésű gyümölccsel, egyeztetés alapján.",
-    receptek: []
+    termekek: []
   },
   {
     id: "piskotamentes", tipus: "edes", nev: "Piskótamentes sütemények", emoji: "🍮",
     leiras: "Szuperkrémes finomságok, amikben alig van tészta vagy piskóta – szinte csak krém és gyümölcs.",
-    receptek: []
+    termekek: []
   },
   {
     id: "suti", tipus: "edes", nev: "Alap sütik", emoji: "🍪",
     leiras: "Egyszerű, házias sütemények a mindennapokra.",
-    receptek: []
+    termekek: []
   },
   {
     id: "pogacsa", tipus: "sos", nev: "Pogácsák", emoji: "🥐",
     leiras: "Puha, sós pogácsák vendégvárónak vagy útravalónak.",
-    receptek: []
+    termekek: []
   },
   {
     id: "lekvar", tipus: "kamra", nev: "Lekvárok, befőttek", emoji: "🫙",
     leiras: "A Tagyon hegyen termett gyümölcsökből, kis üvegekben eltéve.",
-    receptek: []
+    termekek: []
   }
 ];
 

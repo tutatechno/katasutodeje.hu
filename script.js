@@ -1,17 +1,21 @@
 /* Kata Sütődéje – kategóriák kirajzolása és elérhetőségek kitöltése */
 
 function kartyak(kat) {
-  if (!kat.receptek.length) {
+  if (!kat.termekek.length) {
     return Array.from({ length: 3 }, () => `
       <article class="recipe recipe--soon">
         <div class="recipe__img">${kat.emoji}</div>
-        <div class="recipe__body"><h4>Hamarosan</h4><p>Ide kerülnek majd a receptek.</p></div>
+        <div class="recipe__body"><h4>Hamarosan</h4><p>Ide kerül majd a termék rövid leírása és mentességei.</p></div>
       </article>`).join("");
   }
-  return kat.receptek.map(r => `
+  return kat.termekek.map(t => `
     <article class="recipe">
-      <div class="recipe__img">${r.kep ? `<img src="${r.kep}" alt="${r.nev}" loading="lazy">` : kat.emoji}</div>
-      <div class="recipe__body"><h4>${r.nev}</h4><p>${r.leiras || ""}</p></div>
+      <div class="recipe__img">${t.kep ? `<img src="${t.kep}" alt="${t.nev}" loading="lazy">` : kat.emoji}</div>
+      <div class="recipe__body">
+        <h4>${t.nev}</h4>
+        <p>${t.leiras || ""}</p>
+        ${(t.mentes || []).length ? `<div class="tags">${t.mentes.map(m => `<span>${m}mentes</span>`).join("")}</div>` : ""}
+      </div>
     </article>`).join("");
 }
 
