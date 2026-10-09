@@ -44,3 +44,13 @@ const KATEGORIAK = [
     receptek: []
   }
 ];
+
+/* ---------------------------------------------------------
+   GALÉRIA
+   Tedd a képeket az img/galeria/ mappába, és írd ide őket.
+   Amíg kevés a kép, a maradék helyen üres képhely látszik.
+   Példa:
+     { kep: "img/galeria/torta1.jpg", felirat: "Születésnapi torta" },
+   --------------------------------------------------------- */
+const GALERIA = [
+];

@@ -39,3 +39,29 @@ document.getElementById("year").textContent = new Date().getFullYear();
 const menuBtn = document.getElementById("menuBtn"), nav = document.getElementById("nav");
 menuBtn.addEventListener("click", () => { nav.classList.toggle("open"); menuBtn.classList.toggle("open"); });
 nav.addEventListener("click", e => { if (e.target.closest("a")) { nav.classList.remove("open"); menuBtn.classList.remove("open"); } });
+
+/* ---------- Galéria ---------- */
+const GALERIA_HELYEK = 10; // ennyi hely látszik összesen (képek + üres helyek)
+const racs = document.getElementById("galeria-racs");
+const kepek = GALERIA.map((g, i) => `
+  <figure class="gallery__item" data-i="${i}">
+    <img src="${g.kep}" alt="${g.felirat || "Kata Sütődéje"}" loading="lazy">
+    ${g.felirat ? `<figcaption>${g.felirat}</figcaption>` : ""}
+  </figure>`);
+for (let i = kepek.length; i < GALERIA_HELYEK; i++) {
+  kepek.push(`<figure class="gallery__item gallery__item--empty"><span>📷</span><figcaption>Képhely</figcaption></figure>`);
+}
+racs.innerHTML = kepek.join("");
+
+const lightbox = document.getElementById("lightbox");
+racs.addEventListener("click", e => {
+  const f = e.target.closest(".gallery__item[data-i]");
+  if (!f) return;
+  const g = GALERIA[f.dataset.i];
+  lightbox.querySelector("img").src = g.kep;
+  lightbox.querySelector("img").alt = g.felirat || "";
+  lightbox.querySelector("p").textContent = g.felirat || "";
+  lightbox.hidden = false;
+});
+lightbox.addEventListener("click", () => { lightbox.hidden = true; });
+document.addEventListener("keydown", e => { if (e.key === "Escape") lightbox.hidden = true; });
