@@ -138,3 +138,10 @@ p { margin: 0 0 1em; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
 }
+@media (max-width: 600px) {
+  .recipes { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .recipe--soon .recipe__img { aspect-ratio: 2/1; font-size: 2.2rem; }
+  .recipe--soon .recipe__body { padding: 10px 12px 12px; }
+  .recipe--soon .recipe__body p { display: none; }
+  .recipe--soon:nth-child(3) { display: none; }
+}
