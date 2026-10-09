@@ -164,3 +164,12 @@ p { margin: 0 0 1em; }
   .gallery { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .gallery__item:nth-child(1), .gallery__item:nth-child(6) { grid-column: auto; grid-row: auto; }
 }
+
+/* ============ RÓLUNK ============ */
+.story--rev { grid-template-columns: 1.2fr .8fr; }
+.story--rev .story__photo { order: 2; }
+.story__photo--warm { background: linear-gradient(160deg, #f2c6a0, var(--accent)); }
+@media (max-width: 860px) {
+  .story--rev { grid-template-columns: 1fr; }
+  .story--rev .story__photo { order: 0; }
+}
