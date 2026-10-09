@@ -28,6 +28,7 @@ function kategoriak(tipus) {
 
 document.getElementById("kat-edes").innerHTML = kategoriak("edes");
 document.getElementById("kat-sos").innerHTML = kategoriak("sos");
+document.getElementById("kat-kamra").innerHTML = kategoriak("kamra");
 
 document.querySelectorAll("[data-telefon]").forEach(el => el.textContent = KAPCSOLAT.telefon);
 document.querySelectorAll("[data-hely]").forEach(el => el.textContent = KAPCSOLAT.hely);

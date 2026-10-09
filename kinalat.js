@@ -11,10 +11,10 @@ const KAPCSOLAT = {
 
 /* ---------------------------------------------------------
    KATEGÓRIÁK
-   - tipus: "edes" vagy "sos"
+   - tipus: "edes", "sos" vagy "kamra" (lekvárok, befőttek)
    - receptek: ide kerülnek a sütik. Amíg üres, "Hamarosan" kártyák látszanak.
      Egy recept így néz ki:
-     { nev: "Meggyes pite", leiras: "Tagyoni meggyel, omlós tésztában.", kep: "img/meggyes-pite.jpg" }
+     { nev: "Meggyes pite", leiras: "Tagyon hegyi meggyel, omlós tésztában.", kep: "img/meggyes-pite.jpg" }
      (a kep elhagyható – ilyenkor az emoji jelenik meg)
    --------------------------------------------------------- */
 const KATEGORIAK = [
@@ -36,6 +36,11 @@ const KATEGORIAK = [
   {
     id: "pogacsa", tipus: "sos", nev: "Pogácsák", emoji: "🥐",
     leiras: "Puha, sós pogácsák vendégvárónak vagy útravalónak.",
+    receptek: []
+  },
+  {
+    id: "lekvar", tipus: "kamra", nev: "Lekvárok, befőttek", emoji: "🫙",
+    leiras: "A Tagyon hegyen termett gyümölcsökből, kis üvegekben eltéve.",
     receptek: []
   }
 ];
