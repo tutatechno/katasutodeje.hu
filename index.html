@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kata Sütődéje – mindenmentes sütemények</title>
-  <meta name="description" content="Glutén-, tej-, tojás- és cukormentes torták, sütemények és kekszek kézzel, szeretettel sütve. Rendelj online!">
+  <title>Kata Sütődéje – kézműves mindenmentes sütemények</title>
+  <meta name="description" content="Kézműves, mindenmentes édes és sós sütemények kis tételben, Tagyoni-hegyi gyümölcsökből. Rendelés telefonon vagy WhatsAppon, átvétel Zánka környékén.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -13,208 +13,110 @@
 </head>
 <body>
 
-<!-- ============ FEJLÉC ============ -->
-<header class="header" id="top">
+<header class="header">
   <div class="container header__inner">
     <a href="#top" class="logo">Kata <span>Sütődéje</span></a>
     <nav class="nav" id="nav">
-      <a href="#kinalat">Kínálat</a>
-      <a href="#rolam">Rólam</a>
-      <a href="#hogyan">Rendelés menete</a>
-      <a href="#gyik">GYIK</a>
-      <a href="#kapcsolat">Kapcsolat</a>
+      <a href="#edes">Édes</a>
+      <a href="#sos">Sós</a>
+      <a href="#gyumolcs">Gyümölcseink</a>
+      <a href="#rendeles" class="nav__cta">Rendelés</a>
     </nav>
-    <div class="header__actions">
-      <button class="cart-btn" id="cartBtn" aria-label="Kosár megnyitása">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        <span class="cart-btn__count" id="cartCount">0</span>
-      </button>
-      <button class="menu-btn" id="menuBtn" aria-label="Menü"><span></span><span></span><span></span></button>
-    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Menü"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<main>
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="container hero__inner">
-    <div class="hero__text">
-      <p class="eyebrow">Kézzel sütve, szeretettel</p>
-      <h1>Sütemények, amiket <em>mindenki</em> ehet.</h1>
-      <p class="hero__lead">Glutén-, tej-, tojás- és sokszor cukormentes torták, sütik és kekszek – úgy, hogy az ízből semmit nem kell feladni.</p>
-      <div class="hero__cta">
-        <a href="#kinalat" class="btn btn--primary">Megnézem a kínálatot</a>
-        <a href="#hogyan" class="btn btn--ghost">Hogyan rendelhetek?</a>
+<main id="top">
+  <!-- ============ NYITÓ ============ -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__text">
+        <p class="eyebrow">Kézzel, kis tételben · Balaton-felvidék</p>
+        <h1>Mindenmentes sütemények, <em>saját gyümölcsből</em>.</h1>
+        <p class="hero__lead">Édes és sós finomságok, kézzel, kis tételben. A gyümölcsöket magunk termesztjük a Tagyoni-hegyen.</p>
+        <div class="hero__cta">
+          <a href="#rendeles" class="btn btn--primary">Rendelés telefonon</a>
+          <a href="#edes" class="btn btn--ghost">Mit sütök?</a>
+        </div>
       </div>
-      <ul class="hero__badges">
-        <li>🌾 gluténmentes</li><li>🥛 tejmentes</li><li>🥚 tojásmentes</li><li>🍬 cukormentes opciók</li>
+      <div class="hero__visual" aria-hidden="true">
+        <div class="blob"></div>
+        <div class="hero__card hero__card--1"><span>🍰</span></div>
+        <div class="hero__card hero__card--2"><span>🍒</span></div>
+        <div class="hero__card hero__card--3"><span>🥐</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ÉDES ============ -->
+  <section class="section" id="edes">
+    <div class="container">
+      <div class="section__head">
+        <p class="eyebrow">Édes</p>
+        <h2>Torták és sütemények</h2>
+      </div>
+      <div id="kat-edes"></div>
+    </div>
+  </section>
+
+  <!-- ============ SÓS ============ -->
+  <section class="section section--alt" id="sos">
+    <div class="container">
+      <div class="section__head">
+        <p class="eyebrow">Sós</p>
+        <h2>Sós finomságok</h2>
+      </div>
+      <div id="kat-sos"></div>
+    </div>
+  </section>
+
+  <!-- ============ GYÜMÖLCS ============ -->
+  <section class="section" id="gyumolcs">
+    <div class="container story">
+      <div class="story__photo" aria-hidden="true">
+        <!-- Ide jöhet fotó: <img src="img/tagyon.jpg" alt="A Tagyoni-hegy"> -->
+        <span>🍑</span>
+      </div>
+      <div>
+        <p class="eyebrow">Gyümölcseink</p>
+        <h2>A Tagyoni-hegyről</h2>
+        <p>A süteményekbe kerülő gyümölcsök nagy részét magunk termesztjük a Balaton-felvidéken, a Tagyoni-hegyen. Ezért mindig az kerül a sütibe, ami épp beérett. Így a kínálat évszakról évszakra változik.</p>
+        <p class="muted">[Ide jöhet egy pár mondat Katáról és a kertről.]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RENDELÉS ============ -->
+  <section class="section order" id="rendeles">
+    <div class="container order__inner">
+      <div>
+        <p class="eyebrow">Rendelés</p>
+        <h2>Hívj vagy írj!</h2>
+        <p>Mindent kézzel, kis tételben sütök, ezért rendelni csak egyeztetés után lehet. Hívj fel, vagy írj WhatsAppon, és megbeszéljük, mit és mikorra szeretnél.</p>
+        <div class="order__buttons">
+          <a class="btn btn--light" data-tel href="#">📞 <span data-telefon></span></a>
+          <a class="btn btn--whatsapp" data-wa href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+      </div>
+      <ul class="order__info">
+        <li><strong>📍 Átvétel</strong><span>Megbeszélés szerint, Zánka környékén.</span></li>
+        <li><strong>🚗 Kiszállítás</strong><span>A környéken kiszállítás is kérhető.</span></li>
+        <li><strong>⏳ Előre szólj</strong><span>Kis tételben sütök, ezért érdemes pár nappal előbb jelezni.</span></li>
       </ul>
     </div>
-    <div class="hero__visual" aria-hidden="true">
-      <div class="blob"></div>
-      <div class="hero__card hero__card--1"><span>🍰</span></div>
-      <div class="hero__card hero__card--2"><span>🍪</span></div>
-      <div class="hero__card hero__card--3"><span>🫐</span></div>
-      <div class="hero__stamp">100%<br>mindenmentes</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ELŐNYÖK ============ -->
-<section class="features">
-  <div class="container features__grid">
-    <div class="feature"><div class="feature__icon">🌿</div><h3>Tiszta alapanyagok</h3><p>Gondosan válogatott, minőségi hozzávalók, adalékok nélkül.</p></div>
-    <div class="feature"><div class="feature__icon">🛡️</div><h3>Allergénbiztos konyha</h3><p>Külön eszközök, külön munkafelület – a keresztszennyeződés elkerülésére.</p></div>
-    <div class="feature"><div class="feature__icon">🎂</div><h3>Egyedi kérések</h3><p>Szülinapra, esküvőre, céges eseményre – megbeszéljük az elképzelésed.</p></div>
-    <div class="feature"><div class="feature__icon">🚲</div><h3>Átvétel vagy kiszállítás</h3><p>Személyes átvétel vagy házhozszállítás a környéken.</p></div>
-  </div>
-</section>
-
-<!-- ============ KÍNÁLAT ============ -->
-<section class="section" id="kinalat">
-  <div class="container">
-    <div class="section__head">
-      <p class="eyebrow">Kínálat</p>
-      <h2>Mit süssek neked?</h2>
-      <p>Válassz kategóriát, és tedd kosárba a kedvenceidet. Az „Egyéb ételek” rendezvényekre, egyedi megkeresésre készülnek.</p>
-    </div>
-    <div class="filters" id="filters" role="tablist"></div>
-    <div class="products" id="products"></div>
-  </div>
-</section>
-
-<!-- ============ RÓLAM ============ -->
-<section class="section about" id="rolam">
-  <div class="container about__inner">
-    <div class="about__photo">
-      <!-- Ide jöhet Kata fotója: <img src="img/kata.jpg" alt="Kata"> -->
-      <div class="about__placeholder">👩‍🍳</div>
-    </div>
-    <div class="about__text">
-      <p class="eyebrow">Rólam</p>
-      <h2>Szia, Kata vagyok!</h2>
-      <p>A sütés mindig is a szenvedélyem volt – de amikor a családban megjelentek az ételérzékenységek, rájöttem, mennyire nehéz olyan süteményt találni, ami <strong>egyszerre mentes és tényleg finom</strong>.</p>
-      <p>Évek kísérletezése után ma már tortáktól a kekszekig mindent el tudok készíteni glutén, tej, tojás és sokszor hozzáadott cukor nélkül. A célom, hogy egy ünnepi asztalnál senkinek ne kelljen lemondania a desszertről.</p>
-      <div class="about__stats">
-        <div><strong>30+</strong><span>recept</span></div>
-        <div><strong>100%</strong><span>kézműves</span></div>
-        <div><strong>❤️</strong><span>minden falatban</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ RENDELÉS MENETE ============ -->
-<section class="section" id="hogyan">
-  <div class="container">
-    <div class="section__head">
-      <p class="eyebrow">Rendelés menete</p>
-      <h2>Négy egyszerű lépés</h2>
-    </div>
-    <ol class="steps">
-      <li><span>1</span><h3>Válassz</h3><p>Tedd kosárba a kiválasztott sütiket.</p></li>
-      <li><span>2</span><h3>Add le</h3><p>Töltsd ki a rendelési űrlapot, add meg az átvétel napját.</p></li>
-      <li><span>3</span><h3>Visszaigazolás</h3><p>24 órán belül visszaírok, és egyeztetjük a részleteket.</p></li>
-      <li><span>4</span><h3>Élvezd</h3><p>Átveszed frissen – a többit már te tudod. 😊</p></li>
-    </ol>
-    <p class="note">A rendeléseket legalább <strong>2 nappal</strong>, tortákat <strong>4 nappal</strong> az átvétel előtt kérlek leadni.</p>
-  </div>
-</section>
-
-<!-- ============ RENDELÉS ============ -->
-<section class="section order" id="rendeles">
-  <div class="container order__inner">
-    <div class="order__summary">
-      <p class="eyebrow">Rendelés</p>
-      <h2>A kosarad</h2>
-      <div id="orderItems" class="order__items"></div>
-      <div class="order__total"><span>Összesen</span><strong id="orderTotal">0 Ft</strong></div>
-      <p class="small">A végleges árat (esetleges szállítási díjjal) a visszaigazolásban küldöm.</p>
-    </div>
-
-    <form class="order__form" id="orderForm" novalidate>
-      <div class="field-row">
-        <label>Név*<input type="text" name="nev" required autocomplete="name"></label>
-        <label>Telefonszám*<input type="tel" name="telefon" required autocomplete="tel" placeholder="+36 30 123 4567"></label>
-      </div>
-      <label>E-mail cím*<input type="email" name="email" required autocomplete="email"></label>
-      <div class="field-row">
-        <label>Átvétel napja*<input type="date" name="datum" id="datum" required></label>
-        <label>Átvétel módja*
-          <select name="atvetel" id="atvetel" required>
-            <option value="Személyes átvétel">Személyes átvétel</option>
-            <option value="Házhozszállítás">Házhozszállítás</option>
-          </select>
-        </label>
-      </div>
-      <label id="cimField" hidden>Szállítási cím*<input type="text" name="cim" autocomplete="street-address"></label>
-      <label>Megjegyzés, egyedi kérés, allergiák<textarea name="megjegyzes" rows="4" placeholder="Pl. felirat a tortára, további allergia, kért időpont…"></textarea></label>
-      <label class="check"><input type="checkbox" name="adatkezeles" required> Elfogadom az adataim kezelését a rendelés teljesítése céljából.*</label>
-      <!-- spam-csapda: embereknek rejtve -->
-      <input type="text" name="weboldal" class="hp" tabindex="-1" autocomplete="off">
-      <button type="submit" class="btn btn--primary btn--block" id="submitBtn">Rendelés elküldése</button>
-      <p class="form-msg" id="formMsg" role="status"></p>
-    </form>
-  </div>
-</section>
-
-<!-- ============ GYIK ============ -->
-<section class="section" id="gyik">
-  <div class="container container--narrow">
-    <div class="section__head">
-      <p class="eyebrow">GYIK</p>
-      <h2>Gyakori kérdések</h2>
-    </div>
-    <details><summary>Mit jelent pontosan a „mindenmentes”?</summary><p>Alapvetően glutén-, tej- és tojásmentesen sütök. Sok termék hozzáadott cukor nélkül készül (datolyával, eritrittel vagy xilittel édesítve) – ezt a termékeknél külön jelölöm.</p></details>
-    <details><summary>Biztonságos cöliákiásoknak?</summary><p>Csak gluténmentes alapanyagokkal dolgozom, külön eszközökkel. Ha súlyos allergiád van, kérlek írd meg a megjegyzésben, hogy minden részletet egyeztethessünk.</p></details>
-    <details><summary>Mennyivel előre kell rendelni?</summary><p>Süteményeket és kekszeket legalább 2 nappal, tortákat 4 nappal előre. Ünnepek előtt érdemes még korábban jelentkezni.</p></details>
-    <details><summary>Hogyan fizethetek?</summary><p>Átvételkor készpénzzel vagy átutalással. Nagyobb rendelésnél előleget kérek.</p></details>
-    <details><summary>Lehet egyedi tortát rendelni?</summary><p>Persze! Írd le az elképzelésed a megjegyzésben, vagy keress meg közvetlenül, és megbeszéljük.</p></details>
-  </div>
-</section>
-
-<!-- ============ KAPCSOLAT ============ -->
-<section class="section contact" id="kapcsolat">
-  <div class="container contact__inner">
-    <div>
-      <p class="eyebrow">Kapcsolat</p>
-      <h2>Keress bátran!</h2>
-      <p>Kérdésed van, vagy egyedi rendelést szeretnél? Írj vagy hívj!</p>
-    </div>
-    <ul class="contact__list">
-      <li><span>📞</span><a href="tel:+36301234567">+36 30 123 4567</a></li>
-      <li><span>✉️</span><a href="mailto:rendeles@katasutodeje.hu">rendeles@katasutodeje.hu</a></li>
-      <li><span>📍</span>Győr – személyes átvétel előre egyeztetett időpontban</li>
-      <li><span>📷</span><a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a> · <a href="https://facebook.com/" target="_blank" rel="noopener">Facebook</a></li>
-    </ul>
-  </div>
-</section>
+  </section>
 </main>
 
 <footer class="footer">
   <div class="container footer__inner">
     <span class="logo logo--light">Kata <span>Sütődéje</span></span>
-    <span>© <span id="year"></span> Kata Sütődéje · katasutodeje.hu</span>
+    <span>© <span id="year"></span> · <span data-telefon></span> · <span data-hely></span></span>
   </div>
 </footer>
 
-<!-- ============ KOSÁR FIÓK ============ -->
-<div class="drawer-backdrop" id="backdrop"></div>
-<aside class="drawer" id="drawer" aria-label="Kosár">
-  <div class="drawer__head">
-    <h3>Kosár</h3>
-    <button class="drawer__close" id="drawerClose" aria-label="Bezárás">✕</button>
-  </div>
-  <div class="drawer__items" id="drawerItems"></div>
-  <div class="drawer__foot">
-    <div class="order__total"><span>Összesen</span><strong id="drawerTotal">0 Ft</strong></div>
-    <a href="#rendeles" class="btn btn--primary btn--block" id="toOrder">Tovább a rendeléshez</a>
-  </div>
-</aside>
+<a class="wa-float" data-wa href="#" target="_blank" rel="noopener" aria-label="Írj WhatsAppon">💬</a>
 
-<div class="toast" id="toast"></div>
-
-<script src="termekek.js"></script>
+<script src="kinalat.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
