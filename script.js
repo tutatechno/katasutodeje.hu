@@ -1,71 +1,101 @@
-/* Kata Sütődéje – kategóriák kirajzolása és elérhetőségek kitöltése */
+"use strict";
+/* Kata Sütődéje – a tartalom felépítése biztonságosan (innerHTML nélkül) */
+(() => {
+  const $ = (s, el = document) => el.querySelector(s);
+  const KEP_MINTA = /^img\/[a-z0-9_\-\/]+\.(jpe?g|png|webp|avif)$/i;
+  const biztonsagosKep = src => (typeof src === "string" && KEP_MINTA.test(src) && !src.includes("..")) ? src : "";
 
-function kartyak(kat) {
-  if (!kat.termekek.length) {
-    return Array.from({ length: 3 }, () => `
-      <article class="recipe recipe--soon">
-        <div class="recipe__img">${kat.emoji}</div>
-        <div class="recipe__body"><h4>Hamarosan</h4><p>Ide kerül majd a termék rövid leírása és mentességei.</p></div>
-      </article>`).join("");
+  /* ---------- Fotóhely, ha a kép még nincs feltöltve ---------- */
+  function fotohely(img) {
+    const csere = () => {
+      if (!img.isConnected) return;
+      const ph = document.createElement("div");
+      ph.className = img.className + " ph";
+      ph.setAttribute("role", "img");
+      ph.setAttribute("aria-label", "Fotó helye");
+      const cim = document.createElement("span");
+      cim.className = "ph__label";
+      cim.textContent = "Fotó helye";
+      const fajl = document.createElement("small");
+      fajl.textContent = img.getAttribute("src") || "";
+      ph.append(cim, fajl);
+      img.replaceWith(ph);
+    };
+    if (!img.getAttribute("src") || (img.complete && img.naturalWidth === 0)) csere();
+    else img.addEventListener("error", csere, { once: true });
   }
-  return kat.termekek.map(t => `
-    <article class="recipe">
-      <div class="recipe__img">${t.kep ? `<img src="${t.kep}" alt="${t.nev}" loading="lazy">` : kat.emoji}</div>
-      <div class="recipe__body">
-        <h4>${t.nev}</h4>
-        <p>${t.leiras || ""}</p>
-        ${(t.mentes || []).length ? `<div class="tags">${t.mentes.map(m => `<span>${m}mentes</span>`).join("")}</div>` : ""}
-      </div>
-    </article>`).join("");
-}
 
-function kategoriak(tipus) {
-  return KATEGORIAK.filter(k => k.tipus === tipus).map(k => `
-    <div class="category" id="${k.id}">
-      <div class="category__head">
-        <span class="category__icon">${k.emoji}</span>
-        <div><h3>${k.nev}</h3><p>${k.leiras}</p></div>
-      </div>
-      <div class="recipes">${kartyak(k)}</div>
-    </div>`).join("");
-}
+  /* ---------- Készítmények ---------- */
+  const lista = $("#keszitmeny-lista");
+  const tpl = $("#tpl-keszitmeny");
+  if (lista && tpl && typeof KESZITMENYEK !== "undefined" && Array.isArray(KESZITMENYEK)) {
+    KESZITMENYEK.forEach(k => {
+      const kartya = tpl.content.firstElementChild.cloneNode(true);
+      const img = $(".card__img", kartya);
+      img.src = biztonsagosKep(k.kep);
+      img.alt = String(k.nev || "");
+      $(".card__cat", kartya).textContent = String(k.kategoria || "");
+      $(".card__title", kartya).textContent = String(k.nev || "");
+      $(".card__text", kartya).textContent = String(k.leiras || "");
+      const tags = $(".tags", kartya);
+      (Array.isArray(k.mentes) ? k.mentes : []).forEach(m => {
+        const li = document.createElement("li");
+        li.textContent = String(m) + "mentes";
+        tags.append(li);
+      });
+      if (!tags.children.length) tags.remove();
+      lista.append(kartya);
+    });
+  }
 
-document.getElementById("kat-edes").innerHTML = kategoriak("edes");
-document.getElementById("kat-sos").innerHTML = kategoriak("sos");
-document.getElementById("kat-kamra").innerHTML = kategoriak("kamra");
+  /* ---------- Galéria ---------- */
+  const racs = $("#galeria-racs");
+  const doboz = $("#lightbox");
+  if (racs && typeof GALERIA !== "undefined" && Array.isArray(GALERIA)) {
+    GALERIA.forEach(g => {
+      const gomb = document.createElement("button");
+      gomb.type = "button";
+      gomb.className = "gal__item";
+      gomb.setAttribute("aria-label", g.felirat ? "Nagyítás: " + g.felirat : "Kép nagyítása");
+      const img = document.createElement("img");
+      img.className = "photo gal__img";
+      img.loading = "lazy";
+      img.decoding = "async";
+      img.src = biztonsagosKep(g.kep);
+      img.alt = String(g.felirat || "Kata Sütődéje");
+      gomb.append(img);
+      racs.append(gomb);
+    });
+    racs.addEventListener("click", e => {
+      const gomb = e.target.closest(".gal__item");
+      const img = gomb && $("img", gomb);
+      if (!img || !doboz || typeof doboz.showModal !== "function") return;
+      $("img", doboz).src = img.src;
+      $("img", doboz).alt = img.alt;
+      $("p", doboz).textContent = img.alt === "Kata Sütődéje" ? "" : img.alt;
+      doboz.showModal();
+    });
+  }
+  if (doboz) {
+    doboz.addEventListener("click", e => { if (e.target === doboz || e.target.closest(".lightbox__close")) doboz.close(); });
+  }
 
-document.querySelectorAll("[data-telefon]").forEach(el => el.textContent = KAPCSOLAT.telefon);
-document.querySelectorAll("[data-hely]").forEach(el => el.textContent = KAPCSOLAT.hely);
-document.querySelectorAll("[data-tel]").forEach(el => el.href = "tel:" + KAPCSOLAT.telefon.replace(/\s/g, ""));
-document.querySelectorAll("[data-wa]").forEach(el => el.href = "https://wa.me/" + KAPCSOLAT.whatsapp);
-document.getElementById("year").textContent = new Date().getFullYear();
+  /* ---------- Fotóhelyek mindenhol ---------- */
+  document.querySelectorAll("img.photo").forEach(fotohely);
 
-const menuBtn = document.getElementById("menuBtn"), nav = document.getElementById("nav");
-menuBtn.addEventListener("click", () => { nav.classList.toggle("open"); menuBtn.classList.toggle("open"); });
-nav.addEventListener("click", e => { if (e.target.closest("a")) { nav.classList.remove("open"); menuBtn.classList.remove("open"); } });
+  /* ---------- Elérhetőségek ---------- */
+  const tel = String(KAPCSOLAT.telefon || "");
+  const telLink = "tel:" + tel.replace(/[^\d+]/g, "");
+  const wa = "https://wa.me/" + String(KAPCSOLAT.whatsapp || "").replace(/\D/g, "");
+  document.querySelectorAll("[data-telefon]").forEach(el => { el.textContent = tel; });
+  document.querySelectorAll("[data-hely]").forEach(el => { el.textContent = String(KAPCSOLAT.hely || ""); });
+  document.querySelectorAll("a[data-tel]").forEach(el => { el.href = telLink; });
+  document.querySelectorAll("a[data-wa]").forEach(el => { el.href = wa; });
+  document.querySelectorAll("[data-ev]").forEach(el => { el.textContent = String(new Date().getFullYear()); });
 
-/* ---------- Galéria ---------- */
-const GALERIA_HELYEK = 10; // ennyi hely látszik összesen (képek + üres helyek)
-const racs = document.getElementById("galeria-racs");
-const kepek = GALERIA.map((g, i) => `
-  <figure class="gallery__item" data-i="${i}">
-    <img src="${g.kep}" alt="${g.felirat || "Kata Sütődéje"}" loading="lazy">
-    ${g.felirat ? `<figcaption>${g.felirat}</figcaption>` : ""}
-  </figure>`);
-for (let i = kepek.length; i < GALERIA_HELYEK; i++) {
-  kepek.push(`<figure class="gallery__item gallery__item--empty"><span>📷</span><figcaption>Képhely</figcaption></figure>`);
-}
-racs.innerHTML = kepek.join("");
-
-const lightbox = document.getElementById("lightbox");
-racs.addEventListener("click", e => {
-  const f = e.target.closest(".gallery__item[data-i]");
-  if (!f) return;
-  const g = GALERIA[f.dataset.i];
-  lightbox.querySelector("img").src = g.kep;
-  lightbox.querySelector("img").alt = g.felirat || "";
-  lightbox.querySelector("p").textContent = g.felirat || "";
-  lightbox.hidden = false;
-});
-lightbox.addEventListener("click", () => { lightbox.hidden = true; });
-document.addEventListener("keydown", e => { if (e.key === "Escape") lightbox.hidden = true; });
+  /* ---------- Mobil menü bezárása kattintáskor ---------- */
+  const menu = $("#mobilmenu");
+  if (menu && typeof menu.hidePopover === "function") {
+    menu.addEventListener("click", e => { if (e.target.closest("a")) menu.hidePopover(); });
+  }
+})();

@@ -1,59 +1,73 @@
+"use strict";
 /* =========================================================
-   KATA SÜTŐDÉJE – BEÁLLÍTÁSOK ÉS KÍNÁLAT
-   Csak ezt a fájlt kell szerkeszteni a tartalom frissítéséhez.
+   KATA SÜTŐDÉJE – TARTALOM
+   Csak ezt a fájlt kell szerkeszteni.
+
+   FOTÓK: elég a megadott néven feltölteni a képet az img/ mappába
+   (pl. img/keszitmeny-1.jpg). Amíg nincs ott kép, az oldal
+   automatikusan egy "Fotó helye" jelölést mutat.
+   Ajánlott: JPG vagy WEBP, max. 1600 px széles, 300 KB alatt.
    ========================================================= */
 
 const KAPCSOLAT = {
   telefon: "+36 30 123 4567",   // így jelenik meg az oldalon
   whatsapp: "36301234567",      // nemzetközi formátum, + és szóköz nélkül
-  hely: "Zánka környéke"
+  hely: "Zánka és környéke"
 };
 
 /* ---------------------------------------------------------
-   KATEGÓRIÁK
-   - tipus: "edes", "sos" vagy "kamra" (lekvárok, befőttek)
-   - termekek: ide kerülnek a termékek rövid leírással és a mentességekkel.
-     Amíg üres, "Hamarosan" kártyák látszanak. Egy termék így néz ki:
-     { nev: "Meggyes pite", leiras: "Tagyon hegyi meggyel, omlós tésztában.",
-       mentes: ["glutén", "tej", "tojás"], kep: "img/meggyes-pite.jpg" },
-     - mentes: bármelyik szó, az oldalon "…mentes" címkeként jelenik meg
-       (pl. "glutén" → gluténmentes, "cukor" → cukormentes)
-     - kep: elhagyható, ilyenkor az emoji jelenik meg
+   KÉSZÍTMÉNYEK – csak néhány kiemelt darab (4–6 a legszebb)
+   - kategoria: "Édes", "Sós" vagy "Kamra"
+   - mentes: pl. ["glutén", "tej", "tojás", "cukor"]
+     → az oldalon "gluténmentes", "tejmentes" … címkeként jelenik meg.
+     Csak azt írd ide, ami az adott termékre biztosan igaz!
    --------------------------------------------------------- */
-const KATEGORIAK = [
+const KESZITMENYEK = [
   {
-    id: "torta", tipus: "edes", nev: "Torták", emoji: "🎂",
-    leiras: "Ünnepi torták saját termesztésű gyümölccsel, egyeztetés alapján.",
-    termekek: []
+    nev: "Piskótamentes krémes",
+    kategoria: "Édes",
+    leiras: "Szuperkrémes sütemény, amiben alig van tészta – szinte csak krém és gyümölcs.",
+    mentes: [],
+    kep: "img/keszitmeny-1.jpg"
   },
   {
-    id: "piskotamentes", tipus: "edes", nev: "Piskótamentes sütemények", emoji: "🍮",
-    leiras: "Szuperkrémes finomságok, amikben alig van tészta vagy piskóta – szinte csak krém és gyümölcs.",
-    termekek: []
+    nev: "Gyümölcstorta",
+    kategoria: "Édes",
+    leiras: "Ünnepi torta a Tagyon hegyen termett gyümölcsökből, előzetes egyeztetéssel.",
+    mentes: [],
+    kep: "img/keszitmeny-2.jpg"
   },
   {
-    id: "suti", tipus: "edes", nev: "Alap sütik", emoji: "🍪",
-    leiras: "Egyszerű, házias sütemények a mindennapokra.",
-    termekek: []
+    nev: "Pogácsa",
+    kategoria: "Sós",
+    leiras: "Puha, sós pogácsa vendégvárónak vagy útravalónak.",
+    mentes: [],
+    kep: "img/keszitmeny-3.jpg"
   },
   {
-    id: "pogacsa", tipus: "sos", nev: "Pogácsák", emoji: "🥐",
-    leiras: "Puha, sós pogácsák vendégvárónak vagy útravalónak.",
-    termekek: []
+    nev: "Lekvárok, befőttek",
+    kategoria: "Kamra",
+    leiras: "Saját termésből, kis üvegekben eltéve – ahogy a szezon engedi.",
+    mentes: [],
+    kep: "img/keszitmeny-4.jpg"
   },
   {
-    id: "lekvar", tipus: "kamra", nev: "Lekvárok, befőttek", emoji: "🫙",
-    leiras: "A Tagyon hegyen termett gyümölcsökből, kis üvegekben eltéve.",
-    termekek: []
+    nev: "Házi aprósütemény",
+    kategoria: "Édes",
+    leiras: "Egyszerű, házias süti a mindennapokra.",
+    mentes: [],
+    kep: "img/keszitmeny-5.jpg"
   }
 ];
 
 /* ---------------------------------------------------------
-   GALÉRIA
-   Tedd a képeket az img/galeria/ mappába, és írd ide őket.
-   Amíg kevés a kép, a maradék helyen üres képhely látszik.
-   Példa:
-     { kep: "img/galeria/torta1.jpg", felirat: "Születésnapi torta" },
+   GALÉRIA – pár hangulatkép (6 a legszebb)
    --------------------------------------------------------- */
 const GALERIA = [
+  { kep: "img/galeria/1.jpg", felirat: "" },
+  { kep: "img/galeria/2.jpg", felirat: "" },
+  { kep: "img/galeria/3.jpg", felirat: "" },
+  { kep: "img/galeria/4.jpg", felirat: "" },
+  { kep: "img/galeria/5.jpg", felirat: "" },
+  { kep: "img/galeria/6.jpg", felirat: "" }
 ];

@@ -1,165 +1,172 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kata Sütődéje – kézműves mindenmentes sütemények</title>
-  <meta name="description" content="Kézműves, mindenmentes édes és sós sütemények, lekvárok és befőttek kis tételben, Tagyon hegyi gyümölcsökből. Rendelés telefonon vagy WhatsAppon, átvétel Zánka környékén.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta name="color-scheme" content="light dark">
+  <title>Kata Sütődéje – kézműves, mindenmentes finomságok a Balaton-felvidékről</title>
+  <meta name="description" content="Kézzel, kis tételben készült mindenmentes édes és sós sütemények, lekvárok és befőttek a Tagyon hegyen termett gyümölcsökből. Rendelés telefonon vagy WhatsAppon, átvétel Zánka környékén.">
+  <link rel="canonical" href="https://katasutodeje.hu/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%238c2f39'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-style='italic' text-anchor='middle' fill='%23f7f1ea'%3EK%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+  <script src="kinalat.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
+<a class="skip" href="#tartalom">Ugrás a tartalomra</a>
 
-<header class="header">
-  <div class="container header__inner">
-    <a href="#top" class="logo">Kata <span>Sütődéje</span></a>
-    <nav class="nav" id="nav">
-      <a href="#edes">Édes</a>
-      <a href="#sos">Sós</a>
-      <a href="#kamra">Lekvárok</a>
-      <a href="#gyumolcs">Gyümölcseink</a>
-      <a href="#galeria">Galéria</a>
-      <a href="#rolunk">Rólunk</a>
-      <a href="#rendeles" class="nav__cta">Rendelés</a>
-    </nav>
-    <button class="menu-btn" id="menuBtn" aria-label="Menü"><span></span><span></span><span></span></button>
+<header class="nav-wrap">
+  <nav class="nav" aria-label="Fő menü">
+    <a class="brand" href="#top">Kata <em>Sütődéje</em></a>
+    <ul class="nav__links">
+      <li><a href="#keszitmenyek">Készítmények</a></li>
+      <li><a href="#tagyon">Tagyon hegy</a></li>
+      <li><a href="#galeria">Galéria</a></li>
+      <li><a href="#rolunk">Rólunk</a></li>
+    </ul>
+    <a class="btn btn--sm" href="#rendeles">Rendelés</a>
+    <button class="nav__menu" type="button" popovertarget="mobilmenu" aria-label="Menü megnyitása"><span></span><span></span></button>
+  </nav>
+  <div class="sheet" id="mobilmenu" popover>
+    <button class="sheet__close" type="button" popovertarget="mobilmenu" popovertargetaction="hide" aria-label="Menü bezárása">✕</button>
+    <a href="#keszitmenyek">Készítmények</a>
+    <a href="#tagyon">Tagyon hegy</a>
+    <a href="#galeria">Galéria</a>
+    <a href="#rolunk">Rólunk</a>
+    <a href="#rendeles" class="btn">Rendelés</a>
   </div>
 </header>
 
-<main id="top">
+<main id="tartalom">
   <!-- ============ NYITÓ ============ -->
-  <section class="hero">
-    <div class="container hero__inner">
-      <div class="hero__text">
-        <p class="eyebrow">Kézzel, kis tételben · Balaton-felvidék</p>
-        <h1>Mindenmentes sütemények, <em>saját gyümölcsből</em>.</h1>
-        <p class="hero__lead">Édes és sós finomságok, lekvárok és befőttek – kézzel, kis tételben. A gyümölcsöket magunk termesztjük a Tagyon hegyen.</p>
-        <div class="hero__cta">
-          <a href="#rendeles" class="btn btn--primary">Rendelés telefonon</a>
-          <a href="#edes" class="btn btn--ghost">Mit sütök?</a>
+  <section class="hero" id="top">
+    <div class="hero__copy">
+      <p class="kicker"><span class="dot"></span>Kézzel, kis tételben · Balaton-felvidék</p>
+      <h1>Mindenmentes <em>finomságok</em> a&nbsp;Tagyon hegyről.</h1>
+      <p class="lead">Édes és sós sütemények, lekvárok és befőttek – kézzel, kis tételben, a saját kertünkben termett gyümölcsökből.</p>
+      <div class="hero__cta">
+        <a class="btn" href="#rendeles">Rendelés telefonon</a>
+        <a class="btn btn--ghost" href="#keszitmenyek">Készítmények <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="hero__media">
+      <img class="photo hero__a" src="img/hero-1.jpg" alt="Kata Sütődéje sütemény" fetchpriority="high">
+      <img class="photo hero__b" src="img/hero-2.jpg" alt="Gyümölcs a Tagyon hegyről">
+      <svg class="badge" viewBox="0 0 200 200" aria-hidden="true">
+        <defs><path id="kor" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"/></defs>
+        <circle cx="100" cy="100" r="96"/>
+        <text><textPath href="#kor">kézzel · kis tételben · saját gyümölcs ·</textPath></text>
+      </svg>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>mindenmentes</span><span>kézzel készült</span><span>kis tételben</span><span>saját gyümölcs</span><span>Tagyon hegy</span><span>Zánka</span>
+      <span>mindenmentes</span><span>kézzel készült</span><span>kis tételben</span><span>saját gyümölcs</span><span>Tagyon hegy</span><span>Zánka</span>
+    </div>
+  </div>
+
+  <!-- ============ KÉSZÍTMÉNYEK ============ -->
+  <section class="section" id="keszitmenyek">
+    <header class="section__head reveal">
+      <p class="kicker">Készítmények</p>
+      <h2>Néhány <em>kedvencünk</em></h2>
+      <p>A kínálat évszakról évszakra változik – mindig azt sütjük, ami épp beérett. Kérdezz rá telefonon!</p>
+    </header>
+    <div class="bento" id="keszitmeny-lista"></div>
+    <template id="tpl-keszitmeny">
+      <article class="card reveal">
+        <img class="photo card__img" alt="" loading="lazy" decoding="async">
+        <div class="card__body">
+          <p class="card__cat"></p>
+          <h3 class="card__title"></h3>
+          <p class="card__text"></p>
+          <ul class="tags" aria-label="Mentességek"></ul>
         </div>
-      </div>
-      <div class="hero__visual" aria-hidden="true">
-        <div class="blob"></div>
-        <div class="hero__card hero__card--1"><span>🍰</span></div>
-        <div class="hero__card hero__card--2"><span>🍒</span></div>
-        <div class="hero__card hero__card--3"><span>🥐</span></div>
-      </div>
-    </div>
+      </article>
+    </template>
   </section>
 
-  <!-- ============ ÉDES ============ -->
-  <section class="section" id="edes">
-    <div class="container">
-      <div class="section__head">
-        <p class="eyebrow">Édes</p>
-        <h2>Torták és sütemények</h2>
-      </div>
-      <div id="kat-edes"></div>
-    </div>
-  </section>
-
-  <!-- ============ SÓS ============ -->
-  <section class="section section--alt" id="sos">
-    <div class="container">
-      <div class="section__head">
-        <p class="eyebrow">Sós</p>
-        <h2>Sós finomságok</h2>
-      </div>
-      <div id="kat-sos"></div>
-    </div>
-  </section>
-
-  <!-- ============ LEKVÁROK, BEFŐTTEK ============ -->
-  <section class="section" id="kamra">
-    <div class="container">
-      <div class="section__head">
-        <p class="eyebrow">Kamra</p>
-        <h2>Lekvárok, befőttek</h2>
-      </div>
-      <div id="kat-kamra"></div>
-    </div>
-  </section>
-
-  <!-- ============ GYÜMÖLCS ============ -->
-  <section class="section section--alt" id="gyumolcs">
-    <div class="container story">
-      <div class="story__photo" aria-hidden="true">
-        <!-- Ide jöhet fotó: <img src="img/tagyon.jpg" alt="A Tagyon hegy"> -->
-        <span>🍑</span>
-      </div>
-      <div>
-        <p class="eyebrow">Gyümölcseink</p>
-        <h2>A Tagyon hegyről</h2>
-        <p>A süteményekbe kerülő gyümölcsök nagy részét magunk termesztjük a Balaton-felvidéken, a Tagyon hegyen. Ezért mindig az kerül a sütibe, ami épp beérett. Így a kínálat évszakról évszakra változik.</p>
-        <p class="muted">[Ide jöhet pár mondat a kertről és a gyümölcsökről.]</p>
-      </div>
+  <!-- ============ TAGYON HEGY ============ -->
+  <section class="section split" id="tagyon">
+    <img class="photo split__img reveal" src="img/tagyon.jpg" alt="A Tagyon hegy" loading="lazy" decoding="async">
+    <div class="split__text reveal">
+      <p class="kicker">Gyümölcseink</p>
+      <h2>A <em>Tagyon hegyről</em></h2>
+      <p>A gyümölcsök nagy részét magunk termesztjük a Balaton-felvidéken, a Tagyon hegyen. Ezért mindig az kerül a sütibe és az üvegekbe, ami épp beérett.</p>
+      <ol class="facts">
+        <li><b>01</b><span><strong>Saját termés</strong> A gyümölcs a saját kertünkből érkezik.</span></li>
+        <li><b>02</b><span><strong>Szezonális</strong> A kínálat az évszakkal együtt változik.</span></li>
+        <li><b>03</b><span><strong>Kis tétel</strong> Kézzel, kevés darabban, frissen.</span></li>
+      </ol>
     </div>
   </section>
 
   <!-- ============ GALÉRIA ============ -->
   <section class="section" id="galeria">
-    <div class="container">
-      <div class="section__head">
-        <p class="eyebrow">Galéria</p>
-        <h2>Képek a konyhából és a kertből</h2>
-      </div>
-      <div class="gallery" id="galeria-racs"></div>
-    </div>
+    <header class="section__head reveal">
+      <p class="kicker">Galéria</p>
+      <h2>Pillanatok a <em>konyhából</em> és a kertből</h2>
+    </header>
+    <div class="gallery" id="galeria-racs"></div>
   </section>
 
   <!-- ============ RÓLUNK ============ -->
-  <section class="section section--alt" id="rolunk">
-    <div class="container story story--rev">
-      <div class="story__photo story__photo--warm" aria-hidden="true">
-        <!-- Ide jöhet fotó: <img src="img/rolunk.jpg" alt="Kata"> -->
-        <span>👩‍🍳</span>
-      </div>
-      <div>
-        <p class="eyebrow">Rólunk</p>
-        <h2>Kik vagyunk?</h2>
-        <p class="muted">[Ide jön a bemutatkozás: ki Kata, hogyan kezdett mindenmentesen sütni, és mi a fontos neki.]</p>
-        <p class="muted">[Ide jöhet pár mondat a családról, a kertről és arról, miért készül minden kézzel, kis tételben.]</p>
-      </div>
+  <section class="section split split--rev" id="rolunk">
+    <img class="photo split__img reveal" src="img/rolunk.jpg" alt="Kata" loading="lazy" decoding="async">
+    <div class="split__text reveal">
+      <p class="kicker">Rólunk</p>
+      <h2>Kik <em>vagyunk?</em></h2>
+      <p class="todo">[Ide jön a bemutatkozás: ki Kata, hogyan kezdett mindenmentesen sütni, és mi a fontos neki.]</p>
+      <p class="todo">[Ide jöhet pár mondat a családról, a kertről és arról, miért készül minden kézzel, kis tételben.]</p>
+      <p class="sign">– Kata</p>
     </div>
   </section>
 
   <!-- ============ RENDELÉS ============ -->
-  <section class="section order" id="rendeles">
-    <div class="container order__inner">
-      <div>
-        <p class="eyebrow">Rendelés</p>
-        <h2>Hívj vagy írj!</h2>
-        <p>Mindent kézzel, kis tételben sütök, ezért rendelni csak egyeztetés után lehet. Hívj fel, vagy írj WhatsAppon, és megbeszéljük, mit és mikorra szeretnél.</p>
-        <div class="order__buttons">
-          <a class="btn btn--light" data-tel href="#">📞 <span data-telefon></span></a>
-          <a class="btn btn--whatsapp" data-wa href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+  <section class="section" id="rendeles">
+    <div class="order reveal">
+      <div class="order__main">
+        <p class="kicker">Rendelés</p>
+        <h2>Hívj vagy írj – <em>megbeszéljük.</em></h2>
+        <p>Mindent kézzel, kis tételben készítünk, ezért rendelni csak egyeztetés után lehet.</p>
+        <div class="order__btns">
+          <a class="btn btn--light" data-tel href="#rendeles">Hívás: <span data-telefon></span></a>
+          <a class="btn btn--wa" data-wa href="#rendeles" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         </div>
       </div>
       <ul class="order__info">
-        <li><strong>📍 Átvétel</strong><span>Megbeszélés szerint, Zánka környékén.</span></li>
-        <li><strong>🚗 Kiszállítás</strong><span>A környéken kiszállítás is kérhető.</span></li>
-        <li><strong>⏳ Előre szólj</strong><span>Kis tételben sütök, ezért érdemes pár nappal előbb jelezni.</span></li>
+        <li><strong>Átvétel</strong><span>Megbeszélés szerint, <span data-hely></span> területén.</span></li>
+        <li><strong>Kiszállítás</strong><span>A környéken kiszállítás is kérhető.</span></li>
+        <li><strong>Előre szólj</strong><span>Kis tételben sütünk, érdemes pár nappal előbb jelezni.</span></li>
+        <li><strong>Allergének</strong><span>Az összetevőkről rendelés előtt pontos tájékoztatást adunk.</span></li>
       </ul>
     </div>
   </section>
 </main>
 
 <footer class="footer">
-  <div class="container footer__inner">
-    <span class="logo logo--light">Kata <span>Sütődéje</span></span>
-    <span>© <span id="year"></span> · <span data-telefon></span> · <span data-hely></span></span>
+  <div class="footer__top">
+    <nav class="footer__links" aria-label="Jogi információk">
+      <a href="jogi.html#impresszum">Impresszum</a>
+      <a href="jogi.html#adatkezeles">Adatkezelés</a>
+      <a href="jogi.html#szerzoi-jog">Szerzői jog</a>
+      <a href="jogi.html#allergenek">Allergének</a>
+    </nav>
+    <p>© <span data-ev>2026</span> Kata Sütődéje · Minden jog fenntartva · Az oldal nem használ sütiket.</p>
   </div>
+  <p class="footer__word" aria-hidden="true">Kata <em>Sütődéje</em></p>
 </footer>
 
-<div class="lightbox" id="lightbox" hidden><img src="" alt=""><p></p></div>
+<a class="wa-float" data-wa href="#rendeles" target="_blank" rel="noopener noreferrer" aria-label="Írj WhatsAppon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.9 3 3 6.6 3 11c0 2.4 1.1 4.5 3 6l-1 4 4.3-2.2c.9.2 1.8.3 2.7.3 5.1 0 9-3.6 9-8s-3.9-8-9-8z"/></svg></a>
 
-<a class="wa-float" data-wa href="#" target="_blank" rel="noopener" aria-label="Írj WhatsAppon">💬</a>
-
-<script src="kinalat.js"></script>
-<script src="script.js"></script>
+<dialog class="lightbox" id="lightbox" aria-label="Kép nagyítva">
+  <button class="lightbox__close" type="button" aria-label="Bezárás">✕</button>
+  <img alt="">
+  <p></p>
+</dialog>
 </body>
 </html>
