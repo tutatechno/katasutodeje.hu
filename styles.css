@@ -223,3 +223,21 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .legal .toc a:hover { border-color: var(--accent); color: var(--accent); }
 .legal .note { font-size: .92rem; padding: 14px 18px; border-radius: 16px; background: var(--accent-soft); }
 @media (max-width: 560px) { .legal dl { grid-template-columns: 1fr; } .legal dd { margin-bottom: 8px; } }
+
+/* ===== Mobil javítások ===== */
+.sheet { pointer-events: auto; }
+.btn, [data-telefon] { white-space: nowrap; }
+@media (max-width: 860px) {
+  .nav > .btn { display: inline-flex; }
+  .nav { gap: 8px; padding: 6px 6px 6px 16px; }
+  .brand { font-size: 1.15rem; }
+  .nav .btn--sm { padding: .55em 1em; font-size: .82rem; }
+}
+@media (max-width: 560px) {
+  .order__btns { flex-direction: column; }
+  .order__btns .btn { width: 100%; justify-content: center; }
+  .nav > .nav__back { display: none; }
+  .hero h1 { font-size: clamp(2.3rem, 11vw, 2.8rem); }
+  .footer__word { font-size: clamp(2.2rem, 11.5vw, 3rem); }
+  .order { padding: 30px 20px; }
+}
