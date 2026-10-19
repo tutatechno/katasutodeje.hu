@@ -1,0 +1,4 @@
+Contact: https://katasutodeje.hu/jogi.html#biztonsag
+Expires: 2027-10-19T00:00:00.000Z
+Preferred-Languages: hu, en
+Canonical: https://katasutodeje.hu/.well-known/security.txt
