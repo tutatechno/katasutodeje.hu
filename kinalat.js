@@ -1,28 +1,27 @@
 "use strict";
 /* =========================================================
-   KATA SÜTŐDÉJE – TARTALOM
-   Csak ezt a fájlt kell szerkeszteni.
+   KATA SÜTŐDÉJE – TARTALOM (csak ezt a fájlt kell szerkeszteni)
 
-   FOTÓK: elég a megadott néven feltölteni a képet az img/ mappába
-   (pl. img/keszitmeny-1.jpg). Amíg nincs ott kép, az oldal
-   automatikusan egy "Fotó helye" jelölést mutat.
-   Ajánlott: JPG vagy WEBP, max. 1600 px széles, 300 KB alatt.
+   FOTÓK: töltsd fel a képet az img/ mappába a lent megadott néven.
+   Amíg nincs ott kép, az oldal "Fotó hamarosan" jelölést mutat.
+   Ajánlott: JPG vagy WEBP, legfeljebb 1600 px széles, 300 KB alatt.
+   Fix fotóhelyek: img/hero-1.jpg (nyitókép), img/tagyon.jpg, img/rolunk.jpg
    ========================================================= */
 
-const KAPCSOLAT = {
+const KAPCSOLAT = Object.freeze({
   telefon: "+36 30 123 4567",   // így jelenik meg az oldalon
   whatsapp: "36301234567",      // nemzetközi formátum, + és szóköz nélkül
   hely: "Zánka és környéke"
-};
+});
 
 /* ---------------------------------------------------------
-   KÉSZÍTMÉNYEK – csak néhány kiemelt darab (4–6 a legszebb)
-   - kategoria: "Édes", "Sós" vagy "Kamra"
+   KÍNÁLAT – csak néhány kiemelt készítmény (2–4 a legszebb)
+   - kategoria: pl. "Édes", "Sós", "Kamra"
    - mentes: pl. ["glutén", "tej", "tojás", "cukor"]
-     → az oldalon "gluténmentes", "tejmentes" … címkeként jelenik meg.
+     → az oldalon "gluténmentes", "tejmentes" … címke lesz belőle.
      Csak azt írd ide, ami az adott termékre biztosan igaz!
    --------------------------------------------------------- */
-const KESZITMENYEK = [
+const KESZITMENYEK = Object.freeze([
   {
     nev: "Piskótamentes krémes",
     kategoria: "Édes",
@@ -43,31 +42,15 @@ const KESZITMENYEK = [
     leiras: "Puha, sós pogácsa vendégvárónak vagy útravalónak.",
     mentes: [],
     kep: "img/keszitmeny-3.jpg"
-  },
-  {
-    nev: "Lekvárok, befőttek",
-    kategoria: "Kamra",
-    leiras: "Saját termésből, kis üvegekben eltéve – ahogy a szezon engedi.",
-    mentes: [],
-    kep: "img/keszitmeny-4.jpg"
-  },
-  {
-    nev: "Házi aprósütemény",
-    kategoria: "Édes",
-    leiras: "Egyszerű, házias süti a mindennapokra.",
-    mentes: [],
-    kep: "img/keszitmeny-5.jpg"
   }
-];
+]);
 
 /* ---------------------------------------------------------
-   GALÉRIA – pár hangulatkép (6 a legszebb)
+   GALÉRIA – pár hangulatkép (4 a legszebb)
    --------------------------------------------------------- */
-const GALERIA = [
+const GALERIA = Object.freeze([
   { kep: "img/galeria/1.jpg", felirat: "" },
   { kep: "img/galeria/2.jpg", felirat: "" },
   { kep: "img/galeria/3.jpg", felirat: "" },
-  { kep: "img/galeria/4.jpg", felirat: "" },
-  { kep: "img/galeria/5.jpg", felirat: "" },
-  { kep: "img/galeria/6.jpg", felirat: "" }
-];
+  { kep: "img/galeria/4.jpg", felirat: "" }
+]);

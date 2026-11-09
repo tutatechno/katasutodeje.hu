@@ -2,14 +2,15 @@
 <html lang="hu">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; require-trusted-types-for 'script'; trusted-types 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="no-referrer">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f6efe6">
   <title>Jogi információk – Kata Sütődéje</title>
   <meta name="description" content="Impresszum, adatkezelési tájékoztató, szerzői jogi nyilatkozat és allergén-tájékoztató – Kata Sütődéje.">
   <link rel="canonical" href="https://katasutodeje.hu/jogi.html">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%238c2f39'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-style='italic' text-anchor='middle' fill='%23f7f1ea'%3EK%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
   <script src="kinalat.js" defer></script>
   <script src="script.js" defer></script>
@@ -17,16 +18,16 @@
 <body>
 <a class="skip" href="#tartalom">Ugrás a tartalomra</a>
 
-<header class="nav-wrap">
-  <nav class="nav" aria-label="Fő menü">
+<header class="header">
+  <div class="wrap header__in">
     <a class="brand" href="./">Kata <em>Sütődéje</em></a>
-    <a class="btn btn--sm btn--ghost nav__back" href="./">← Főoldal</a>
+    <a class="link" href="./">Főoldal</a>
     <a class="btn btn--sm" href="./#rendeles">Rendelés</a>
-  </nav>
+  </div>
 </header>
 
 <main class="legal" id="tartalom">
-  <p class="kicker">Jogi információk</p>
+  <p class="eyebrow">Jogi információk</p>
   <h1>Átláthatóan, <em>röviden</em>.</h1>
   <p>Ezen az oldalon találod a szolgáltató adatait, az adatkezelési tájékoztatót, a szerzői jogi nyilatkozatot és az allergénekkel kapcsolatos tudnivalókat.</p>
   <ul class="toc">
@@ -112,14 +113,15 @@
 
   <!-- ===================== BIZTONSÁG ===================== -->
   <h2 id="biztonsag">Biztonság</h2>
-  <p>Az oldal statikus: nincs adatbázisa, bejelentkezése, űrlapja és sütije, minden kapcsolat titkosított (HTTPS). Szigorú tartalombiztonsági szabályzat (Content Security Policy) tiltja külső kódok betöltését.</p>
+  <p>Az oldal statikus: nincs adatbázisa, bejelentkezése, űrlapja és sütije, minden kapcsolat titkosított (HTTPS). Szigorú tartalombiztonsági szabályzat (Content Security Policy és Trusted Types) tiltja a külső kódok betöltését és a kódbeinjektálást, az oldal más webhelyre nem ágyazható be, és nem ad tovább hivatkozó (referrer) adatot.</p>
   <p>Ha biztonsági hibát találsz, kérjük, jelezd az Impresszumban megadott elérhetőségeken.</p>
 
-  <p><small>Hatályos: 2026. október 19-től.</small></p>
+  <p><small>Hatályos: 2026. november 8-tól.</small></p>
 </main>
 
 <footer class="footer">
-  <div class="footer__top">
+  <div class="wrap footer__in">
+    <a class="brand" href="./">Kata <em>Sütődéje</em></a>
     <nav class="footer__links" aria-label="Jogi információk">
       <a href="#impresszum">Impresszum</a>
       <a href="#adatkezeles">Adatkezelés</a>
@@ -128,7 +130,6 @@
     </nav>
     <p>© <span data-ev>2026</span> Kata Sütődéje · Minden jog fenntartva</p>
   </div>
-  <p class="footer__word" aria-hidden="true">Kata <em>Sütődéje</em></p>
 </footer>
 </body>
 </html>
